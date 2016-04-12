@@ -18,7 +18,7 @@ public class Crab {
 		this.sizeX = 165;
 		this.sizeY = 165;
 		try {                
-	          image = ImageIO.read(new File("./img/Crab Front.png"));
+	          image = ImageIO.read(new File("./img/Turtle.png"));
 	       } catch (IOException ex) {
 	            // handle exception...
 	       }
