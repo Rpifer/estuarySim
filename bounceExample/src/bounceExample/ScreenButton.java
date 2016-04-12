@@ -12,7 +12,7 @@ public class ScreenButton extends JButton {
 	int j = 0;
 	int clickx;
 	int clicky;
-	boolean clicking;
+	boolean addCrab;
 	Crab grabbed;
 	boolean grabbing;
 
@@ -26,17 +26,18 @@ public class ScreenButton extends JButton {
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-        	clicking = true;
+        	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 650 && e.getX() < 750)){
+        		addCrab = true;
+        	}
         	grabbing = false;
-            x = e.getX()-165/2;
-            y = e.getY()-165/2;
+            clickx = e.getX();
+            clicky = e.getY();
    			 
         }
         
         public void mouseReleased(MouseEvent e){
         	grabbed = null;
         	grabbing = false;
-        	clicking = false;
         	x = -1;
         	y = -1;
         	j = -1;
@@ -65,9 +66,9 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
-		if(j > -1 && c.crabs.get(j).equals(grabbed)){
+		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
 			c.crabs.get(j).x = x;
-			c.crabs.get(j).y = y;
+			c.crabs.get(j).y = y;	
 		}
 	}
 }

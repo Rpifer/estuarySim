@@ -52,13 +52,36 @@ public class PaintingPanel extends JPanel {
 		}
 	}
 	
+	public void deleteCrabs(){
+		for(int i = 0; i < crabs.size(); i++){
+			if(crabs.get(i).x > buttons.get(0).x && crabs.get(i).x < buttons.get(0).x + buttons.get(0).sizeX/2){
+				if(crabs.get(i).y > buttons.get(0).y && crabs.get(i).y < buttons.get(0).y + buttons.get(0).sizeY/2){
+					crabs.remove(i);
+					i--;
+				}
+			}
+		}
+	}
+	
+	public void clickAddCrab(ScreenButton s){
+		
+//		if(((s.clickx - buttons.get(1).sizeX/2) > buttons.get(1).x) && (buttons.get(1).x < (s.clickx + buttons.get(1).sizeX/2))){
+//			if(((s.clicky - buttons.get(1).sizeY/2) > buttons.get(1).y) && (buttons.get(1).y < (s.clicky + buttons.get(1).sizeY/2))){
+//					addCrab(rand.nextInt(1000),rand.nextInt(1500));
+//			}
+//		}
+		if(s.clickx > 0 && s.addCrab){
+			addCrab(rand.nextInt(1000),rand.nextInt(1500));
+			s.addCrab = false;
+		}
+	}
 	
 	public static void main(String[] args){
 		PaintingPanel P = new PaintingPanel();
 		P.background = new Estuary(0,0);
-		P.addCrab(200, 200);
-		P.addCrab(400, 400);
-		P.addCrab(500, 500);
+		P.addCrab(600, 600);
+		P.addCrab(200, 400);
+		P.addCrab(700, 500);
 		P.addCrab(400, 400);
 		P.addButton(0, 500, 0);
 		P.addButton(0, 625, 1);
@@ -73,8 +96,10 @@ public class PaintingPanel extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 		while(true){
+			P.clickAddCrab(s);
 			s.checkPos(P);
 			P.moveCrabs();
+			P.deleteCrabs();
 			P.repaint();
 			try {
     			Thread.sleep(50);
