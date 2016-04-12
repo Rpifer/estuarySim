@@ -65,13 +65,8 @@ public class PaintingPanel extends JPanel {
 	
 	public void clickAddCrab(ScreenButton s){
 		
-//		if(((s.clickx - buttons.get(1).sizeX/2) > buttons.get(1).x) && (buttons.get(1).x < (s.clickx + buttons.get(1).sizeX/2))){
-//			if(((s.clicky - buttons.get(1).sizeY/2) > buttons.get(1).y) && (buttons.get(1).y < (s.clicky + buttons.get(1).sizeY/2))){
-//					addCrab(rand.nextInt(1000),rand.nextInt(1500));
-//			}
-//		}
 		if(s.clickx > 0 && s.addCrab){
-			addCrab(rand.nextInt(1450),rand.nextInt(750));
+			addCrab(rand.nextInt(1350),rand.nextInt(100)+500);
 			s.addCrab = false;
 		}
 	}
