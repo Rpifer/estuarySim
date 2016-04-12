@@ -26,7 +26,7 @@ public class ScreenButton extends JButton {
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-        	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 650 && e.getX() < 750)){
+        	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
         		addCrab = true;
         	}
         	grabbing = false;

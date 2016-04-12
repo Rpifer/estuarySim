@@ -11,17 +11,31 @@ public class Estuary {
 	int y;
 	int sizeX;
 	int sizeY;
-	public BufferedImage image;
+	public BufferedImage perfect;
+	public BufferedImage ok;
+	public BufferedImage bad;
 	public Estuary(int x, int y){
 		this.x = x;
 		this.y = y;
 		this.sizeX = 1500;
 		this.sizeY = 1000;
 		try {                
-	          image = ImageIO.read(new File("./img/Estuary.png"));
+	          perfect = ImageIO.read(new File("./img/estuary.png"));
+	          ok = ImageIO.read(new File("./img/ok.png")); 
+	          bad = ImageIO.read(new File("./img/bad.png")); 
 	       } catch (IOException ex) {
 	            // handle exception...
 	       }
 	    }
+	
+	public BufferedImage check(int crabs){
+		if(crabs < 9){
+			return bad;
+		}else if(crabs < 15){
+			return ok;
+		}else
+			return perfect;
+		
+	}
 	}
 
